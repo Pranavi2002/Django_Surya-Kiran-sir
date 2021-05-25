@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html>
+<head>
+	<title>:: Admin Home ::</title>
+</head>
+<body>
+
+<h2 align=center>Django Crud Operations</h2><hr color="red"><hr color="red">
+<br><br>
+<a href="{% url 'adminhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'viewusers' %}">View Users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'alogout' %}">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<h3 align="center"><u>View Users</u></h3>
+<table align="center" border="2" width="750">
+	<tr>
+		<th>ID</th>
+		<th>Full Name</th>
+		<th>Email</th>
+		<th>Username</th>
+		<th>Password</th>
+		<th>Mobileno</th>
+		<th>Location</th>
+		<th>Action</th>
+	</tr>
+	{% for user in users %}
+    	<tr>
+    		<td>{{user.id}}</td>
+    		<td>{{user.fullname}}</td>
+    		<td>{{user.email}}</td>
+    		<td>{{user.username}}</td>
+    		<td>{{user.password}}</td>
+    		<td>{{user.mobileno}}</td>
+    		<td>{{user.location}}</td>
+    		<td align="center"><a href="/deleteuser/{{user.id}}">Delete</a>
+    	</tr>
+    {% empty %}
+    <h3 align="center">No Records Found</h3>
+	{% endfor %}
+</table>
+</body>
+</html>

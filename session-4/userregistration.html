@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html>
+<head>
+	<title>:: User Registration ::</title>
+</head>
+<body>
+
+<h2 align=center>Django Crud Operations</h2><hr color="red"><hr color="red">
+<br><br>
+<a href="{% url 'indexpage' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'adminlogin' %}">AdminLogin</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'userregistration' %}">UserRegistration</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'userlogin' %}">UserLogin</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'contactpage' %}">Contact Us</a>
+<br>
+<h3 align="center"><u>User Registration</u></h3>
+<center>
+<form method="post">
+	{% csrf_token %}
+
+	{% for field in form %}
+
+		{{field | as_crispy_field }}
+
+	{% endfor %}
+<br>
+<input type="submit" value="Register">
+</form>
+</body>
+</html>
