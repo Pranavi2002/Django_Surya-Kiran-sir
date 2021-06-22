@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:: Admin Home ::</title>
+</head>
+<body>
+
+<h2 align=center>Django Crud Operations</h2><hr color="red"><hr color="red">
+<br><br>
+<a href="{% url 'adminhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'viewusers' %}">View Users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'deleteuserbyid' %}">Delete User by ID</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'addcontent' %}">Add Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="{% url 'alogout' %}">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<h3 align="center"><u>Add Content</u></h3>
+<center>
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<br><br>
+<input type="submit" value="Add">
+</form>
+</body>
+</html>
